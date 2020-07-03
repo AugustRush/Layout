@@ -19,14 +19,6 @@ Pod::Spec.new do |spec|
     spec.pod_target_xcconfig = {
       'DEFINES_MODULE' => 'YES'
     }
-    spec.compiler_flags = [
-        '-fno-omit-frame-pointer',
-        '-fexceptions',
-        '-Wall',
-        '-Werror',
-        '-std=c++1y',
-        '-fPIC'
-    ]
     spec.source_files = 'Layout/Sources/*.{c,h,m,mm}'
     spec.public_header_files = 'Sources/{LayoutKit}.h'
     spec.dependency 'Yoga'
