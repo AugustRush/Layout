@@ -73,6 +73,7 @@ NS_INLINE CGFloat YGRoundPixelValue(CGFloat value) {
 @class LKStackLayout;
 @interface LKLayout (Private)
 
+@property (nonatomic, weak, readonly) id<LKLayoutable> item;
 @property (nonatomic, weak) LKStackLayout *parent;
 @property (nonatomic, readonly) YGNodeRef node;
 

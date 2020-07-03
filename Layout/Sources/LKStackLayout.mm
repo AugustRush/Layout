@@ -94,7 +94,7 @@
             topLeft.y + YGNodeLayoutGetHeight(node),
         };
 
-        const CGPoint origin = preservedOrigin;
+        const CGPoint origin = self.item ? CGPointMake(preservedOrigin.x - self.frame.origin.x, preservedOrigin.y - self.frame.origin.y) : preservedOrigin;
         [child setFrame:(CGRect){
             .origin =
                 {
@@ -152,16 +152,15 @@
 
 @implementation LKZStackLayout
 
-//- (instancetype)initWithItem:(id<LKLayoutable>)item {
-//    self = [super initWithItem:item];
-//    if (self) {
-//        CGSize itemSize = [item sizeThatFits:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)];
-//        YGNodeStyleSetWidth(self.node, itemSize.width);
-//        YGNodeStyleSetHeight(self.node, itemSize.height);
-//        YGNodeStyleSetFlexShrink(self.node, 0);
-//    }
-//    return self;
-//}
+- (instancetype)initWithItem:(id<LKLayoutable>)item {
+    self = [super initWithItem:item];
+    if (self) {
+        CGSize itemSize = [item sizeThatFits:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)];
+        YGNodeStyleSetWidth(self.node, itemSize.width);
+        YGNodeStyleSetHeight(self.node, itemSize.height);
+    }
+    return self;
+}
 
 - (CGSize)sizeThatFits:(CGSize)size {
     //

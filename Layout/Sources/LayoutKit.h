@@ -61,6 +61,10 @@ namespace Layout {
         return layout;
     }
 
+    static inline LKZStackLayout * AxisZ(UIView *forView, float width, float height, std::initializer_list<id<LKLayoutSpecified>> children) {
+        return (LKZStackLayout *)AxisZ(forView, 0, children).width(width).height(height);
+    }
+
     static inline LKZStackLayout * AxisZ(UIView *forView, std::initializer_list<id<LKLayoutSpecified>> children) {
         return AxisZ(forView, 0, children);
     }

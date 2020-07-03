@@ -24,6 +24,11 @@
     imageView.backgroundColor = [self randomColor];
     [self.view addSubview:imageView];
     
+    UILabel *label1 = [UILabel new];
+    label1.text = @"🈚️";
+    label1.backgroundColor = [self randomColor];
+    [imageView addSubview:label1];
+    
     UILabel *label2 = [UILabel new];
     label2.text = @"this is text 222";
     label2.backgroundColor = [self randomColor];
@@ -77,11 +82,9 @@
     
     Layout::AxisY(self.view, 2, {
         Layout::AxisX({
-            Layout::Insets(10, Layout::AxisZ(200,100, {
-                imageView.lk.right(0).bottom(0),
-                label2,
-            }))
-            .alignItems(YGAlignCenter).justifyContent(YGJustifyCenter),
+            Layout::Edges(10, Layout::AxisZ(imageView, 140,140,{
+                label1.lk.right(-1).bottom(-1),
+            })),
             Layout::AxisY({
                 label3,
                 label4,
