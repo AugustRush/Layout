@@ -13,9 +13,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LKStackLayout : LKLayout
 
-- (void)addChild:(LKLayout *)child;
-- (void)removeChild:(LKLayout *)child;
-- (LKLayout *)childAtIndex:(NSUInteger)index;
+
+/// add conform to LKLayoutSpecified object to this stack
+/// @param child id<LKLayoutSpecified> , real object type LKLayout
+- (void)addChild:(id<LKLayoutSpecified>)child;
+
+/// remove LKLayoutSpecified object in this stack
+/// @param child child id<LKLayoutSpecified> , real object type LKLayout
+- (void)removeChild:(id<LKLayoutSpecified>)child;
+
+/// get the LKLayoutSpecified object in this stack
+/// @param index the object index
+- (id<LKLayoutSpecified>)childAtIndex:(NSUInteger)index;
 
 - (void)applyLayoutWithOrigin:(CGPoint)origin size:(CGSize)size;
 

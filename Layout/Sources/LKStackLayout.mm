@@ -12,7 +12,7 @@
 
 @implementation LKStackLayout {
     @public
-    NSMutableArray<LKLayout *> *_children;
+    NSMutableArray<id<LKLayoutSpecified>> *_children;
 }
 
 #pragma mark - life cycle methods
@@ -46,19 +46,21 @@
 
 #pragma mark - public methods
 
-- (void)addChild:(LKLayout *)child {
-    YGNodeInsertChild(self.node, child.node, (uint32_t)_children.count);
-    [_children addObject:child];
-    [child setParent:self];
+- (void)addChild:(id<LKLayoutSpecified>)child {
+    LKLayout *childLayout = [child specifiedLayout];
+    YGNodeInsertChild(self.node, childLayout.node, (uint32_t)_children.count);
+    [_children addObject:childLayout];
+    [childLayout setParent:self];
 }
 
-- (void)removeChild:(LKLayout *)child {
-    YGNodeRemoveChild(self.node, child.node);
-    [_children removeObject:child];
-    [child setParent:nil];
+- (void)removeChild:(id<LKLayoutSpecified>)child {
+    LKLayout *childLayout = [child specifiedLayout];
+    YGNodeRemoveChild(self.node, childLayout.node);
+    [_children removeObject:childLayout];
+    [childLayout setParent:nil];
 }
 
-- (LKLayout *)childAtIndex:(NSUInteger)index {
+- (id<LKLayoutSpecified>)childAtIndex:(NSUInteger)index {
     if (index < _children.count) {
         return _children[index];
     }

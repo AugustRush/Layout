@@ -32,6 +32,7 @@
 		97199AA924ACBD22004C8303 /* UIView+LKLayout.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIView+LKLayout.mm"; sourceTree = "<group>"; };
 		97199AAC24AD8D32004C8303 /* LayoutKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LayoutKit.h; sourceTree = "<group>"; };
 		97199AAF24AD92CE004C8303 /* UIView+LKPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+LKPrivate.h"; sourceTree = "<group>"; };
+		97199B2A24AED43F004C8303 /* LKLayoutSpecified.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LKLayoutSpecified.h; sourceTree = "<group>"; };
 		97569EE624AB5CBA003F65EB /* Layout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Layout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97569EE924AB5CBA003F65EB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		97569EEA24AB5CBA003F65EB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -73,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				97199A9E24ACB65F004C8303 /* LKLayoutable.h */,
+				97199B2A24AED43F004C8303 /* LKLayoutSpecified.h */,
 				97199A9F24ACB6F2004C8303 /* LKStackLayout.h */,
 				97199AA024ACB6F2004C8303 /* LKStackLayout.mm */,
 				97199AA824ACBD22004C8303 /* UIView+LKLayout.h */,

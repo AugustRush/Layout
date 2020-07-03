@@ -9,11 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "LKStackLayout.h"
 #import "UIView+LKLayout.h"
+#import "LKLayoutSpecified.h"
 #include <initializer_list>
 
-namespace lk {
+namespace Layout {
 
-    static inline LKHStackLayout * layoutX(UIView *forView, NSUInteger state, std::initializer_list<LKLayout *> children) {
+    static inline LKHStackLayout * AxisX(UIView *forView, NSUInteger state, std::initializer_list<id<LKLayoutSpecified>> children) {
         LKHStackLayout *layout = [[LKHStackLayout alloc] initWithItem:forView];
         for (auto child : children) {
             [layout addChild:child];
@@ -22,15 +23,15 @@ namespace lk {
         return layout;
     }
 
-    static inline LKHStackLayout * layoutX(UIView *forView, std::initializer_list<LKLayout *> children) {
-        return layoutX(forView, 0, children);
+    static inline LKHStackLayout * AxisX(UIView *forView, std::initializer_list<id<LKLayoutSpecified>> children) {
+        return AxisX(forView, 0, children);
     }
 
-    static inline LKHStackLayout * layoutX(std::initializer_list<LKLayout *> children) {
-        return layoutX(nil, children);
+    static inline LKHStackLayout * AxisX(std::initializer_list<id<LKLayoutSpecified>> children) {
+        return AxisX(nil, children);
     }
 
-    static inline LKVStackLayout * layoutY(UIView *forView, NSUInteger state, std::initializer_list<LKLayout *> children) {
+    static inline LKVStackLayout * AxisY(UIView *forView, NSUInteger state, std::initializer_list<id<LKLayoutSpecified>> children) {
         LKVStackLayout *layout = [[LKVStackLayout alloc] initWithItem:forView];
         for (auto child : children) {
             [layout addChild:child];
@@ -39,19 +40,19 @@ namespace lk {
         return layout;
     }
 
-    static inline LKVStackLayout * layoutY(UIView *forView, std::initializer_list<LKLayout *> children) {
-        return layoutY(forView, 0, children);
+    static inline LKVStackLayout * AxisY(UIView *forView, std::initializer_list<id<LKLayoutSpecified>> children) {
+        return AxisY(forView, 0, children);
     }
 
-    static inline LKVStackLayout * layoutY(float width, float height, std::initializer_list<LKLayout *> children) {
-        return (LKVStackLayout *)layoutY(nil, children).width(width).height(height);
+    static inline LKVStackLayout * AxisY(float width, float height, std::initializer_list<id<LKLayoutSpecified>> children) {
+        return (LKVStackLayout *)AxisY(nil, children).width(width).height(height);
     }
 
-    static inline LKVStackLayout * layoutY(std::initializer_list<LKLayout *> children) {
-        return layoutY(NAN, NAN, children);
+    static inline LKVStackLayout * AxisY(std::initializer_list<id<LKLayoutSpecified>> children) {
+        return AxisY(NAN, NAN, children);
     }
 
-    static inline LKZStackLayout * layoutZ(UIView *forView, NSUInteger state, std::initializer_list<LKLayout *> children) {
+    static inline LKZStackLayout * AxisZ(UIView *forView, NSUInteger state, std::initializer_list<id<LKLayoutSpecified>> children) {
         LKZStackLayout *layout = [[LKZStackLayout alloc] initWithItem:forView];
         for (auto child : children) {
             [layout addChild:child];
@@ -60,16 +61,16 @@ namespace lk {
         return layout;
     }
 
-    static inline LKZStackLayout * layoutZ(UIView *forView, std::initializer_list<LKLayout *> children) {
-        return layoutZ(forView, 0, children);
+    static inline LKZStackLayout * AxisZ(UIView *forView, std::initializer_list<id<LKLayoutSpecified>> children) {
+        return AxisZ(forView, 0, children);
     }
 
-    static inline LKZStackLayout * layoutZ(float width, float height, std::initializer_list<LKLayout *> children) {
-        return (LKZStackLayout *)layoutZ(nil, children).width(width).height(height);
+    static inline LKZStackLayout * AxisZ(float width, float height, std::initializer_list<id<LKLayoutSpecified>> children) {
+        return (LKZStackLayout *)AxisZ(nil, children).width(width).height(height);
     }
 
-    static inline LKZStackLayout * layoutZ(std::initializer_list<LKLayout *> children) {
-        return layoutZ(nil, children);
+    static inline LKZStackLayout * AxisZ(std::initializer_list<id<LKLayoutSpecified>> children) {
+        return AxisZ(nil, children);
     }
 
 }

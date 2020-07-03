@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "LKLayoutable.h"
+#import "LKLayoutSpecified.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LKLayout: NSObject<LKLayoutable>
+@interface LKLayout: NSObject<LKLayoutable,LKLayoutSpecified>
 
 #define LK_PROPERTY(name, type) @property (nonatomic, readonly) LKLayout * (^name)(type v)
 

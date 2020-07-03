@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "LKLayoutable.h"
+#import "LKLayoutSpecified.h"
 
 NS_ASSUME_NONNULL_BEGIN
 @class LKLayout;
 @class LKStackLayout;
-@interface UIView (LKLayout)<LKLayoutable>
+@interface UIView (LKLayout)<LKLayoutable,LKLayoutSpecified>
 
 @property (nonatomic, readonly) LKLayout *lk;
 @property (nonatomic, assign) NSInteger lk_layoutState;

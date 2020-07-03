@@ -64,6 +64,12 @@
     return _frame;
 }
 
+#pragma mark - LKLayoutSpecified
+
+- (LKLayout *)specifiedLayout {
+    return self;
+}
+
 #pragma mark - public methods
 
 #define LK_STYLE_SET_METHOD(method,name,type) \

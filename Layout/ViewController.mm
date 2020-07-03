@@ -30,7 +30,7 @@
     [self.view addSubview:label2];
     
     UILabel *label3 = [UILabel new];
-    label3.text = @"texxt3";
+    label3.text = @"texxt33333";
     label3.backgroundColor = [self randomColor];
     [self.view addSubview:label3];
     
@@ -49,15 +49,29 @@
     label6.backgroundColor = [self randomColor];
     [self.view addSubview:label6];
         
-    lk::layoutX(self.view, {
+    Layout::AxisX(self.view, {
         label1.lk.width(100).height(80),
-        lk::layoutY({
-            label2.lk,
-            label5.lk,
+        label6.lk.width(100).height(30),
+        Layout::AxisY({
+            label2,
+            label5,
         }),
-        lk::layoutZ(101,101,{
+        Layout::AxisZ(80,80,{
             label3.lk,
             label4.lk
+        })
+    });
+    
+    Layout::AxisY(self.view, 1, {
+        label1,
+        label2,
+        Layout::AxisX({
+            label3,
+            label4,
+            Layout::AxisZ(100, 100, {
+                label5,
+                label6
+            })
         })
     });
 }
@@ -65,6 +79,16 @@
 
 - (UIColor *)randomColor {
     return [UIColor colorWithRed:arc4random() % 255 / 255.0 green:arc4random() % 255 / 255.0 blue:arc4random() % 255 / 255.0 alpha:1.0];
+}
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [super touchesEnded:touches withEvent:event];
+    
+    self.view.lk_layoutState = !self.view.lk_layoutState;
+    [self.view setNeedsLayout];
+    [UIView animateWithDuration:0.5 animations:^{
+        [self.view layoutIfNeeded];
+    }];
 }
 
 @end

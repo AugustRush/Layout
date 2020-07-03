@@ -39,19 +39,13 @@
     //
     NSUInteger layoutState = self.lk_layoutState;
     LKStackLayout *stackLayout = [self.lk_layoutContext objectForKey:@(layoutState)];
-    if (!stackLayout.parent) {
+    if (stackLayout && !stackLayout.parent && YGNodeGetParent(stackLayout.node) == nullptr) {
         [stackLayout applyLayoutWithOrigin:self.frame.origin size:self.frame.size];
     }
 }
 
 - (LKLayout *)lk {
     return [[LKLayout alloc] initWithItem:self];
-//    LKLayout *layout = objc_getAssociatedObject(self, _cmd);
-//    if (layout == nil) {
-//        layout = [[LKLayout alloc] initWithItem:self];
-//        objc_setAssociatedObject(self, _cmd, layout, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-//    }
-//    return layout;
 }
 
 - (NSMutableDictionary *)lk_layoutContext {
@@ -70,6 +64,12 @@
 
 - (void)setLk_layoutState:(NSInteger)lk_layoutState {
     objc_setAssociatedObject(self, @selector(lk_layoutState), @(lk_layoutState), OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
+#pragma mark - LKLayoutSpecified
+
+- (LKLayout *)specifiedLayout {
+    return [self lk];
 }
 
 @end
