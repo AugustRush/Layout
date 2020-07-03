@@ -27,7 +27,7 @@ Pod::Spec.new do |spec|
         '-std=c++1y',
         '-fPIC'
     ]
-    spec.source_files = 'Layout/Sources/*.{c,h,cpp}'
+    spec.source_files = 'Layout/Sources/*.{c,h,m,mm}'
     spec.public_header_files = 'Sources/{LayoutKit}.h'
     spec.dependency 'Yoga'
     
