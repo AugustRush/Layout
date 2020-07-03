@@ -23,12 +23,7 @@
     imageView.image = [UIImage systemImageNamed:@"book"];
     imageView.backgroundColor = [self randomColor];
     [self.view addSubview:imageView];
-    
-    UILabel *label1 = [UILabel new];
-    label1.text = @"🈚️";
-    label1.backgroundColor = [self randomColor];
-    [imageView addSubview:label1];
-    
+        
     UILabel *label2 = [UILabel new];
     label2.text = @"this is text 222";
     label2.backgroundColor = [self randomColor];
@@ -67,7 +62,7 @@
         })
     });
     
-    Layout::Insets(20, Layout::AxisY(self.view, 1, {
+    Layout::AxisY(self.view, 1, {
         imageView,
         label2,
         Layout::AxisX({
@@ -78,17 +73,20 @@
                 label6
             })
         })
-    }));
+    });
     
     Layout::AxisY(self.view, 2, {
         Layout::AxisX({
-            Layout::Edges(10, Layout::AxisZ(imageView, 140,140,{
-                label1.lk.right(-1).bottom(-1),
-            })),
+            Layout::AxisZ(80,80,{
+                imageView.lk.width(70).height(70),
+                label2.lk.right(0).bottom(0),
+            })
+            .margin(10),
             Layout::AxisY({
                 label3,
                 label4,
-            }),
+            })
+            .padding(10),
         }),
         Layout::AxisX({
             label5,

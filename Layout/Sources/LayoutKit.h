@@ -77,35 +77,35 @@ namespace Layout {
         return AxisZ(nil, children);
     }
 
-    static inline LKLayout * Insets(float insets, id<LKLayoutSpecified> specified) {
-        return [specified specifiedLayout].padding(insets);
-    }
-
-    static inline LKLayout * Insets(float left, float right, float top, float bottom, id<LKLayoutSpecified> specified) {
-        return [specified specifiedLayout].paddingLeft(left).paddingRight(right).paddingTop(top).paddingBottom(bottom);
-    }
-
-    static inline LKLayout * PercentInsets(float insets, id<LKLayoutSpecified> specified) {
-        return [specified specifiedLayout].paddingPercent(insets);
-    }
-
-    static inline LKLayout * PercentInsets(float left, float right, float top, float bottom, id<LKLayoutSpecified> specified) {
-        return [specified specifiedLayout].paddingLeftPercent(left).paddingRightPercent(right).paddingTopPercent(top).paddingBottomPercent(bottom);
-    }
-
-    static inline LKLayout * Edges(float edges, id<LKLayoutSpecified> specified) {
-        return [specified specifiedLayout].margin(edges);
-    }
-
-    static inline LKLayout * Edges(float left, float right, float top, float bottom, id<LKLayoutSpecified> specified) {
-        return [specified specifiedLayout].marginLeft(left).marginRight(right).marginTop(top).marginBottom(bottom);
-    }
-
-    static inline LKLayout * PercentEdges(float edges, id<LKLayoutSpecified> specified) {
-        return [specified specifiedLayout].marginPercent(edges);
-    }
-
-    static inline LKLayout * PercentEdges(float left, float right, float top, float bottom, id<LKLayoutSpecified> specified) {
-        return [specified specifiedLayout].marginLeftPercent(left).marginRightPercent(right).marginTopPercent(top).marginBottomPercent(bottom);
-    }
+//    static inline LKLayout * Insets(float insets, id<LKLayoutSpecified> specified) {
+//        return [specified specifiedLayout].padding(insets);
+//    }
+//
+//    static inline LKLayout * Insets(float left, float right, float top, float bottom, id<LKLayoutSpecified> specified) {
+//        return [specified specifiedLayout].paddingLeft(left).paddingRight(right).paddingTop(top).paddingBottom(bottom);
+//    }
+//
+//    static inline LKLayout * PercentInsets(float insets, id<LKLayoutSpecified> specified) {
+//        return [specified specifiedLayout].paddingPercent(insets);
+//    }
+//
+//    static inline LKLayout * PercentInsets(float left, float right, float top, float bottom, id<LKLayoutSpecified> specified) {
+//        return [specified specifiedLayout].paddingLeftPercent(left).paddingRightPercent(right).paddingTopPercent(top).paddingBottomPercent(bottom);
+//    }
+//
+//    static inline LKLayout * Edges(float edges, id<LKLayoutSpecified> specified) {
+//        return [specified specifiedLayout].margin(edges);
+//    }
+//
+//    static inline LKLayout * Edges(float left, float right, float top, float bottom, id<LKLayoutSpecified> specified) {
+//        return [specified specifiedLayout].marginLeft(left).marginRight(right).marginTop(top).marginBottom(bottom);
+//    }
+//
+//    static inline LKLayout * PercentEdges(float edges, id<LKLayoutSpecified> specified) {
+//        return [specified specifiedLayout].marginPercent(edges);
+//    }
+//
+//    static inline LKLayout * PercentEdges(float left, float right, float top, float bottom, id<LKLayoutSpecified> specified) {
+//        return [specified specifiedLayout].marginLeftPercent(left).marginRightPercent(right).marginTopPercent(top).marginBottomPercent(bottom);
+//    }
 }
