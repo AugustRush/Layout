@@ -91,6 +91,7 @@
 
 /**/
 LK_STYLE_SET_METHOD(Flex, flex, float)
+LK_STYLE_SET_METHOD(PositionType, positionType, YGPositionType)
 LK_STYLE_SET_METHOD(FlexGrow, flexGrow, float)
 LK_STYLE_SET_METHOD(FlexShrink, flexShrink, float)
 LK_STYLE_SET_METHOD(FlexBasis, flexBasis, float)
