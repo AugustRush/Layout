@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// flex
 LK_PROPERTY(flex, float);
-LK_PROPERTY(positionType, float);
+LK_PROPERTY(positionType, YGPositionType);
 LK_PROPERTY(flexGrow, float);
 LK_PROPERTY(flexShrink, float);
 LK_PROPERTY(flexBasis, float);
