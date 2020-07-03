@@ -15,7 +15,7 @@ Pod::Spec.new do |spec|
     }
     spec.platforms = { :ios => "8.0", :osx => "10.7", :tvos => "10.0", :watchos => "2.0" }
     spec.module_name = 'Layout'
-    spec.requires_arc = false
+    spec.requires_arc = true
     spec.frameworks = 'UIKit', 'CoreText'
     spec.library = 'c++'
     spec.xcconfig = {
