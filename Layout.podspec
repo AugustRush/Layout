@@ -5,8 +5,8 @@ Pod::Spec.new do |spec|
     spec.homepage = 'https://github.com/AugustRush/Layout'
     # spec.documentation_url = 'https://yogalayout.com/docs'
   
-    spec.summary = 'Layout is decleration UI layout library base on facebook's Yoga.'
-    spec.description = 'Layout is decleration UI layout library base on facebook's Yoga.'
+    spec.summary = "Layout is decleration UI layout library base on facebook's Yoga."
+    spec.description = "Layout is decleration UI layout library base on facebook's Yoga."
   
     spec.authors = 'August'
     spec.source = {
