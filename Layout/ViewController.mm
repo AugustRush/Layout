@@ -19,10 +19,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    UILabel *label1 = [UILabel new];
-    label1.text = @"texxt1";
-    label1.backgroundColor = [self randomColor];
-    [self.view addSubview:label1];
+    UIImageView *imageView = [UIImageView new];
+    imageView.image = [UIImage systemImageNamed:@"book"];
+    imageView.backgroundColor = [self randomColor];
+    [self.view addSubview:imageView];
     
     UILabel *label2 = [UILabel new];
     label2.text = @"this is text 222";
@@ -50,7 +50,7 @@
     [self.view addSubview:label6];
         
     Layout::AxisX(self.view, {
-        label1.lk.width(100).height(80),
+        imageView.lk.width(100).height(80),
         label6.lk.width(100).height(30),
         Layout::AxisY({
             label2,
@@ -62,8 +62,8 @@
         })
     });
     
-    Layout::AxisY(self.view, 1, {
-        label1,
+    Layout::Insets(20, Layout::AxisY(self.view, 1, {
+        imageView,
         label2,
         Layout::AxisX({
             label3,
@@ -72,6 +72,24 @@
                 label5,
                 label6
             })
+        })
+    }));
+    
+    Layout::AxisY(self.view, 2, {
+        Layout::AxisX({
+            Layout::Insets(10, Layout::AxisZ(200,100, {
+                imageView.lk.right(0).bottom(0),
+                label2,
+            }))
+            .alignItems(YGAlignCenter).justifyContent(YGJustifyCenter),
+            Layout::AxisY({
+                label3,
+                label4,
+            }),
+        }),
+        Layout::AxisX({
+            label5,
+            label6
         })
     });
 }
@@ -84,10 +102,12 @@
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [super touchesEnded:touches withEvent:event];
     
-    self.view.lk_layoutState = !self.view.lk_layoutState;
+    self.view.lk_layoutState = (self.view.lk_layoutState + 1) % 3;
     [self.view setNeedsLayout];
-    [UIView animateWithDuration:0.5 animations:^{
-        [self.view layoutIfNeeded];
+    [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.8 initialSpringVelocity:0.1 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+       [self.view layoutIfNeeded];
+    } completion:^(BOOL finished) {
+        
     }];
 }
 

@@ -152,6 +152,17 @@
 
 @implementation LKZStackLayout
 
+//- (instancetype)initWithItem:(id<LKLayoutable>)item {
+//    self = [super initWithItem:item];
+//    if (self) {
+//        CGSize itemSize = [item sizeThatFits:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)];
+//        YGNodeStyleSetWidth(self.node, itemSize.width);
+//        YGNodeStyleSetHeight(self.node, itemSize.height);
+//        YGNodeStyleSetFlexShrink(self.node, 0);
+//    }
+//    return self;
+//}
+
 - (CGSize)sizeThatFits:(CGSize)size {
     //
     [self applyMeasureFunc:YGMeasureView positionType:YGPositionTypeAbsolute];

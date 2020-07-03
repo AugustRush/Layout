@@ -7,7 +7,6 @@
 //
 
 #import "LKLayout.h"
-#import <yoga/Yoga.h>
 #import "LKLayout+Private.h"
 
 @interface LKLayout ()
@@ -34,6 +33,7 @@
         YGNodeStyleSetJustifyContent(_node, YGJustifyFlexStart);
         YGNodeStyleSetFlexShrink(_node, 0);
         YGNodeStyleSetFlexGrow(_node, 0);
+        YGNodeStyleSetPosition(_node, YGEdgeAll, NAN);
     }
     return self;
 }
@@ -80,16 +80,24 @@
     };\
 }
 
-#define LK_PADDING_SET_METHOD(method,name,type,edge) \
+#define LK_STYLE_SET_METHOD2(method,name,type,edge) \
 - (LKLayout *  _Nonnull (^)(type))name {\
     return ^(type v) {\
-        YGNodeStyleSetPadding(self.node, edge, v);\
+        YGNodeStyleSet##method(self.node, edge, v);\
         return self;\
     };\
 }
 
 
 /**/
+LK_STYLE_SET_METHOD(Flex, flex, float)
+LK_STYLE_SET_METHOD(FlexGrow, flexGrow, float)
+LK_STYLE_SET_METHOD(FlexShrink, flexShrink, float)
+LK_STYLE_SET_METHOD(FlexBasis, flexBasis, float)
+LK_STYLE_SET_METHOD(JustifyContent, justifyContent, YGJustify)
+LK_STYLE_SET_METHOD(AlignContent, alignContent, YGAlign)
+LK_STYLE_SET_METHOD(AlignItems, alignItems, YGAlign)
+LK_STYLE_SET_METHOD(AlignSelf, alignSelf, YGAlign)
 LK_STYLE_SET_METHOD(Width, width, float)
 LK_STYLE_SET_METHOD(Height, height, float)
 LK_STYLE_SET_METHOD(WidthPercent, widthPercent, float)
@@ -103,17 +111,64 @@ LK_STYLE_SET_METHOD(MinHeightPercent, minHeightPercent, float)
 LK_STYLE_SET_METHOD(MaxWidthPercent, maxWidthPercent, float)
 LK_STYLE_SET_METHOD(MaxHeightPercent, maxHeightPercent, float)
 LK_STYLE_SET_METHOD(AspectRatio, aspectRatio, float)
-LK_PADDING_SET_METHOD(PaddingLeft, paddingLeft, float, YGEdgeLeft)
-LK_PADDING_SET_METHOD(PaddingRight, paddingRight, float, YGEdgeRight)
-LK_PADDING_SET_METHOD(PaddingTop, paddingTop, float, YGEdgeTop)
-LK_PADDING_SET_METHOD(PaddingStart, paddingStart, float, YGEdgeStart)
-LK_PADDING_SET_METHOD(PaddingEnd, paddingEnd, float, YGEdgeEnd)
-LK_PADDING_SET_METHOD(PaddingHorizontal, paddingHorizontal, float, YGEdgeHorizontal)
-LK_PADDING_SET_METHOD(PaddingVertical, paddingVertical, float, YGEdgeVertical)
-LK_PADDING_SET_METHOD(Padding, padding, float, YGEdgeAll)
 
-- (void)asdas {
+LK_STYLE_SET_METHOD2(Padding, paddingLeft, float, YGEdgeLeft)
+LK_STYLE_SET_METHOD2(Padding, paddingRight, float, YGEdgeRight)
+LK_STYLE_SET_METHOD2(Padding, paddingTop, float, YGEdgeTop)
+LK_STYLE_SET_METHOD2(Padding, paddingBottom, float, YGEdgeBottom)
+LK_STYLE_SET_METHOD2(Padding, paddingStart, float, YGEdgeStart)
+LK_STYLE_SET_METHOD2(Padding, paddingEnd, float, YGEdgeEnd)
+LK_STYLE_SET_METHOD2(Padding, paddingHorizontal, float, YGEdgeHorizontal)
+LK_STYLE_SET_METHOD2(Padding, paddingVertical, float, YGEdgeVertical)
+LK_STYLE_SET_METHOD2(Padding, padding, float, YGEdgeAll)
+LK_STYLE_SET_METHOD2(PaddingPercent, paddingLeftPercent, float, YGEdgeLeft)
+LK_STYLE_SET_METHOD2(PaddingPercent, paddingRightPercent, float, YGEdgeRight)
+LK_STYLE_SET_METHOD2(PaddingPercent, paddingTopPercent, float, YGEdgeTop)
+LK_STYLE_SET_METHOD2(PaddingPercent, paddingBottomPercent, float, YGEdgeBottom)
+LK_STYLE_SET_METHOD2(PaddingPercent, paddingStartPercent, float, YGEdgeStart)
+LK_STYLE_SET_METHOD2(PaddingPercent, paddingEndPercent, float, YGEdgeEnd)
+LK_STYLE_SET_METHOD2(PaddingPercent, paddingHorizontalPercent, float, YGEdgeHorizontal)
+LK_STYLE_SET_METHOD2(PaddingPercent, paddingVerticalPercent, float, YGEdgeVertical)
+LK_STYLE_SET_METHOD2(PaddingPercent, paddingPercent, float, YGEdgeAll)
 
-}
+LK_STYLE_SET_METHOD2(Margin, marginLeft, float, YGEdgeLeft)
+LK_STYLE_SET_METHOD2(Margin, marginRight, float, YGEdgeRight)
+LK_STYLE_SET_METHOD2(Margin, marginTop, float, YGEdgeTop)
+LK_STYLE_SET_METHOD2(Margin, marginBottom, float, YGEdgeBottom)
+LK_STYLE_SET_METHOD2(Margin, marginStart, float, YGEdgeStart)
+LK_STYLE_SET_METHOD2(Margin, marginEnd, float, YGEdgeEnd)
+LK_STYLE_SET_METHOD2(Margin, marginHorizontal, float, YGEdgeHorizontal)
+LK_STYLE_SET_METHOD2(Margin, marginVertical, float, YGEdgeVertical)
+LK_STYLE_SET_METHOD2(Margin, margin, float, YGEdgeAll)
+LK_STYLE_SET_METHOD2(MarginPercent, marginLeftPercent, float, YGEdgeLeft)
+LK_STYLE_SET_METHOD2(MarginPercent, marginRightPercent, float, YGEdgeRight)
+LK_STYLE_SET_METHOD2(MarginPercent, marginTopPercent, float, YGEdgeTop)
+LK_STYLE_SET_METHOD2(MarginPercent, marginBottomPercent, float, YGEdgeBottom)
+LK_STYLE_SET_METHOD2(MarginPercent, marginStartPercent, float, YGEdgeStart)
+LK_STYLE_SET_METHOD2(MarginPercent, marginEndPercent, float, YGEdgeEnd)
+LK_STYLE_SET_METHOD2(MarginPercent, marginHorizontalPercent, float, YGEdgeHorizontal)
+LK_STYLE_SET_METHOD2(MarginPercent, marginVerticalPercent, float, YGEdgeVertical)
+LK_STYLE_SET_METHOD2(MarginPercent, marginPercent, float, YGEdgeAll)
+
+LK_STYLE_SET_METHOD2(Position, left, float, YGEdgeLeft)
+LK_STYLE_SET_METHOD2(Position, right, float, YGEdgeRight)
+LK_STYLE_SET_METHOD2(Position, top, float, YGEdgeTop)
+LK_STYLE_SET_METHOD2(Position, bottom, float, YGEdgeBottom)
+LK_STYLE_SET_METHOD2(Position, start, float, YGEdgeStart)
+LK_STYLE_SET_METHOD2(Position, end, float, YGEdgeEnd)
+LK_STYLE_SET_METHOD2(PositionPercent, leftPercent, float, YGEdgeLeft)
+LK_STYLE_SET_METHOD2(PositionPercent, rightPercent, float, YGEdgeRight)
+LK_STYLE_SET_METHOD2(PositionPercent, topPercent, float, YGEdgeTop)
+LK_STYLE_SET_METHOD2(PositionPercent, bottomPercent, float, YGEdgeBottom)
+LK_STYLE_SET_METHOD2(PositionPercent, startPercent, float, YGEdgeStart)
+LK_STYLE_SET_METHOD2(PositionPercent, endPercent, float, YGEdgeEnd)
+
+LK_STYLE_SET_METHOD2(Border, borderLeft, float, YGEdgeLeft)
+LK_STYLE_SET_METHOD2(Border, borderRight, float, YGEdgeRight)
+LK_STYLE_SET_METHOD2(Border, borderTop, float, YGEdgeTop)
+LK_STYLE_SET_METHOD2(Border, borderBottom, float, YGEdgeBottom)
+LK_STYLE_SET_METHOD2(Border, borderStart, float, YGEdgeStart)
+LK_STYLE_SET_METHOD2(Border, borderEnd, float, YGEdgeEnd)
+LK_STYLE_SET_METHOD2(Border, border, float, YGEdgeAll)
 
 @end
