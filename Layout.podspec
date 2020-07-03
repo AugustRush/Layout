@@ -29,5 +29,7 @@ Pod::Spec.new do |spec|
     ]
     spec.source_files = 'Layout/Sources/*.{c,h,cpp}'
     spec.public_header_files = 'Sources/{LayoutKit}.h'
+    spec.dependency 'Yoga'
+    
   
   end
