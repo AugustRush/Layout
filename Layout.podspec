@@ -16,8 +16,10 @@ Pod::Spec.new do |spec|
     spec.platforms = { :ios => "8.0", :osx => "10.7", :tvos => "10.0", :watchos => "2.0" }
     spec.module_name = 'Layout'
     spec.requires_arc = false
-    spec.pod_target_xcconfig = {
-      'DEFINES_MODULE' => 'YES'
+    spec.library = 'c++'
+    spec.xcconfig = {
+       'CLANG_CXX_LANGUAGE_STANDARD' => 'c++11',
+       'CLANG_CXX_LIBRARY' => 'libc++'
     }
     spec.source_files = 'Layout/Sources/*.{c,h,m,mm}'
     spec.public_header_files = 'Sources/{LayoutKit}.h'
