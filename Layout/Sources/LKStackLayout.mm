@@ -158,6 +158,8 @@
         CGSize itemSize = [item sizeThatFits:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)];
         YGNodeStyleSetWidth(self.node, itemSize.width);
         YGNodeStyleSetHeight(self.node, itemSize.height);
+        YGNodeStyleSetJustifyContent(self.node, YGJustifyCenter);
+        YGNodeStyleSetAlignItems(self.node, YGAlignCenter);
     }
     return self;
 }

@@ -172,4 +172,13 @@ LK_STYLE_SET_METHOD2(Border, borderStart, float, YGEdgeStart)
 LK_STYLE_SET_METHOD2(Border, borderEnd, float, YGEdgeEnd)
 LK_STYLE_SET_METHOD2(Border, border, float, YGEdgeAll)
 
+- (LKLayout * _Nonnull (^)(void))markDirty {
+    return ^{
+        if (YGNodeHasMeasureFunc(self.node)) {
+            YGNodeMarkDirty(self.node);
+        }
+        return self;
+    };
+}
+
 @end
