@@ -10,6 +10,7 @@
 #import "LKStackLayout.h"
 #import "UIView+LKLayout.h"
 #import "LKLayoutSpecified.h"
+#import "LKSpacer.h"
 #include <initializer_list>
 
 namespace Layout {
@@ -75,5 +76,9 @@ namespace Layout {
 
     static inline LKZStackLayout * AxisZ(std::initializer_list<id<LKLayoutSpecified>> children) {
         return AxisZ(nil, children);
+    }
+
+    static inline LKSpacer * Spacer(float value = NAN) {
+        return [[LKSpacer alloc] initWithValue:value];
     }
 }

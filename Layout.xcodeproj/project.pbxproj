@@ -12,6 +12,7 @@
 		97199AA424ACB89C004C8303 /* LKLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 97199AA324ACB89C004C8303 /* LKLayout.m */; };
 		97199AAA24ACBD22004C8303 /* UIView+LKLayout.mm in Sources */ = {isa = PBXBuildFile; fileRef = 97199AA924ACBD22004C8303 /* UIView+LKLayout.mm */; };
 		97199B8624B2C080004C8303 /* NSObject+LKPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 97199B8524B2C080004C8303 /* NSObject+LKPrivate.m */; };
+		97199B8924B2E23D004C8303 /* LKSpacer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 97199B8824B2E23D004C8303 /* LKSpacer.mm */; };
 		97569EEB24AB5CBA003F65EB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 97569EEA24AB5CBA003F65EB /* AppDelegate.m */; };
 		97569EEE24AB5CBA003F65EB /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 97569EED24AB5CBA003F65EB /* SceneDelegate.m */; };
 		97569EF124AB5CBA003F65EB /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 97569EF024AB5CBA003F65EB /* ViewController.mm */; };
@@ -36,6 +37,8 @@
 		97199B2A24AED43F004C8303 /* LKLayoutSpecified.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LKLayoutSpecified.h; sourceTree = "<group>"; };
 		97199B8424B2C080004C8303 /* NSObject+LKPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+LKPrivate.h"; sourceTree = "<group>"; };
 		97199B8524B2C080004C8303 /* NSObject+LKPrivate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LKPrivate.m"; sourceTree = "<group>"; };
+		97199B8724B2E23D004C8303 /* LKSpacer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LKSpacer.h; sourceTree = "<group>"; };
+		97199B8824B2E23D004C8303 /* LKSpacer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = LKSpacer.mm; sourceTree = "<group>"; };
 		97569EE624AB5CBA003F65EB /* Layout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Layout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97569EE924AB5CBA003F65EB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		97569EEA24AB5CBA003F65EB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -87,6 +90,8 @@
 				97199B8524B2C080004C8303 /* NSObject+LKPrivate.m */,
 				97199AA224ACB89C004C8303 /* LKLayout.h */,
 				97199AA324ACB89C004C8303 /* LKLayout.m */,
+				97199B8724B2E23D004C8303 /* LKSpacer.h */,
+				97199B8824B2E23D004C8303 /* LKSpacer.mm */,
 				97199AA524ACB992004C8303 /* LKLayout+Private.h */,
 				97199AAC24AD8D32004C8303 /* LayoutKit.h */,
 			);
@@ -234,6 +239,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97199B8924B2E23D004C8303 /* LKSpacer.mm in Sources */,
 				97199AA424ACB89C004C8303 /* LKLayout.m in Sources */,
 				97199AAA24ACBD22004C8303 /* UIView+LKLayout.mm in Sources */,
 				97569EF124AB5CBA003F65EB /* ViewController.mm in Sources */,

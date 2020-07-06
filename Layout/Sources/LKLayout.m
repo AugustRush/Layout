@@ -30,11 +30,11 @@
         _item = item;
         _node = YGNodeNew();
         YGNodeSetContext(_node, (__bridge void *)(item));
-        YGNodeStyleSetAlignItems(_node, YGAlignFlexStart);
-        YGNodeStyleSetJustifyContent(_node, YGJustifyFlexStart);
+        YGNodeStyleSetJustifyContent(self.node, YGJustifyFlexStart);
+        YGNodeStyleSetAlignItems(self.node, YGAlignFlexStart);
+        YGNodeStyleSetAlignContent(self.node, YGAlignCenter);
         YGNodeStyleSetFlexShrink(_node, 0);
         YGNodeStyleSetFlexGrow(_node, 0);
-        YGNodeStyleSetPosition(_node, YGEdgeAll, NAN);
     }
     return self;
 }

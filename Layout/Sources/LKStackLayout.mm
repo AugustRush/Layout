@@ -75,9 +75,9 @@
 #pragma mark - private methods
 
 - (void)applyMeasureFunc:(YGMeasureFunc)func positionType:(YGPositionType)type {
-    [super applyMeasureFunc:nullptr positionType:type];
+    [super applyMeasureFunc:nullptr positionType:YGPositionTypeRelative];
     for (LKLayout *child in _children) {
-        [child applyMeasureFunc:func positionType:type];
+        [child applyMeasureFunc:func positionType:YGPositionTypeRelative];
     }
 }
 
@@ -155,9 +155,6 @@
 - (instancetype)initWithItem:(id<LKLayoutable>)item {
     self = [super initWithItem:item];
     if (self) {
-        CGSize itemSize = [item sizeThatFits:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)];
-        YGNodeStyleSetWidth(self.node, itemSize.width);
-        YGNodeStyleSetHeight(self.node, itemSize.height);
         YGNodeStyleSetJustifyContent(self.node, YGJustifyCenter);
         YGNodeStyleSetAlignItems(self.node, YGAlignCenter);
     }
