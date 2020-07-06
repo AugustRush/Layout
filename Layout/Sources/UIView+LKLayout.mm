@@ -11,8 +11,10 @@
 #import "UIView+LKPrivate.h"
 #import "LKStackLayout.h"
 #import "LKLayout+Private.h"
+#import "NSObject+LKPrivate.h"
 
 @implementation UIView (LKLayout)
+
 
 + (void)load {
     static dispatch_once_t onceToken;
@@ -45,31 +47,17 @@
 }
 
 - (LKLayout *)lk {
-    return [[LKLayout alloc] initWithItem:self];
-}
-
-- (NSMutableDictionary *)lk_layoutContext {
-    NSMutableDictionary *context = objc_getAssociatedObject(self, _cmd);
-    if (context == nil) {
-        context = [NSMutableDictionary dictionary];
-        objc_setAssociatedObject(self, _cmd, context, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    LKLayout *activeLayout = [self lk_activeLayout];
+    if (activeLayout == nil) {
+        activeLayout = [self specifiedLayout];
     }
-    return context;
-}
-
-- (NSInteger)lk_layoutState {
-    NSNumber *number = objc_getAssociatedObject(self, _cmd);
-    return [number integerValue];
-}
-
-- (void)setLk_layoutState:(NSInteger)lk_layoutState {
-    objc_setAssociatedObject(self, @selector(lk_layoutState), @(lk_layoutState), OBJC_ASSOCIATION_COPY_NONATOMIC);
+    return activeLayout;
 }
 
 #pragma mark - LKLayoutSpecified
 
 - (LKLayout *)specifiedLayout {
-    return [self lk];
+    return [[LKLayout alloc] initWithItem:self];
 }
 
 @end

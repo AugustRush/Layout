@@ -114,7 +114,7 @@ LK_PROPERTY(border, float);
 /// dirty
 @property (nonatomic, readonly) LKLayout * (^markDirty)(void);
 
-- (instancetype)initWithItem:(id<LKLayoutable>)item;
+- (instancetype)initWithItem:(nullable id<LKLayoutable>)item;
 
 @end
 

@@ -11,6 +11,8 @@
 
 @interface ViewController ()
 
+@property (nonatomic, strong) UIImageView *imageView;
+
 @end
 
 @implementation ViewController
@@ -23,6 +25,8 @@
     imageView.image = [UIImage systemImageNamed:@"book"];
     imageView.backgroundColor = [self randomColor];
     [self.view addSubview:imageView];
+    
+    self.imageView = imageView;
         
     UILabel *label2 = [UILabel new];
     label2.text = @"this is text 222";
@@ -108,7 +112,7 @@
     [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.8 initialSpringVelocity:0.1 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
        [self.view layoutIfNeeded];
     } completion:^(BOOL finished) {
-        
+        self.imageView.lk.width(200);
     }];
 }
 

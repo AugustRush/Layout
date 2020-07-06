@@ -8,6 +8,7 @@
 
 #import "LKLayout.h"
 #import "LKLayout+Private.h"
+#import "NSObject+LKPrivate.h"
 
 @interface LKLayout ()
 
@@ -23,7 +24,7 @@
 
 #pragma mark - life cycle methods
 
-- (instancetype)initWithItem:(id<LKLayoutable>)item {
+- (instancetype)initWithItem:(nullable id<LKLayoutable>)item {
     self = [super init];
     if (self) {
         _item = item;
@@ -45,6 +46,10 @@
 #pragma mark - private methods
 
 - (void)applyMeasureFunc:(YGMeasureFunc)func positionType:(YGPositionType)type {
+    NSObject *object = self.item;
+    if (object != nil) {
+        [object setLk_activeLayout:self];
+    }
     YGNodeSetMeasureFunc(_node, func);
     YGNodeStyleSetPositionType(_node, type);
 }
