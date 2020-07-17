@@ -31,6 +31,8 @@
 
 @end
 
+using namespace Layout;
+
 @interface ViewController ()
 
 @end
@@ -67,24 +69,36 @@
     [self.view addSubview:view6];
     
     
-    Layout::AxisZ(self.view, 414, 800, {
-        Layout::AxisX({
-            Layout::AxisZ(100,100,{
+    AxisZ(self.view, {
+        AxisX({
+            AxisZ(100,100,{
                 view1,
                 view2.lk.width(30).height(30).right(-1).bottom(-1)
             }),
-            Layout::Spacer(10),
-            Layout::AxisY({
+            Spacer(10),
+            AxisY({
                 view3.lk.height(50).width(200),
-                Layout::AxisX({
+                AxisX({
                     view4.lk.height(50).width(50),
-                    Layout::Spacer(),
+                    Spacer(),
                     view5.lk.width(50).height(50),
-                    Layout::Spacer(),
+                    Spacer(),
                     view6.lk.width(50).height(50),
                 })
                 .widthPercent(100)
             }),
+        })
+    });
+    
+    
+    AxisZ(self.view, 1, {
+        AxisX({
+            view1.lk.width(50),
+            view2.lk.width(50),
+            view3.lk.width(50),
+            view4.lk.width(50),
+            view5.lk.width(50),
+            view6.lk.width(50),
         })
     });
 }
@@ -92,7 +106,7 @@
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [super touchesEnded:touches withEvent:event];
     
-    self.view.lk_layoutState = (self.view.lk_layoutState + 1) % 3;
+    self.view.lk_layoutState = (self.view.lk_layoutState + 1) % 2;
     [self.view setNeedsLayout];
     [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.8 initialSpringVelocity:0.1 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
        [self.view layoutIfNeeded];

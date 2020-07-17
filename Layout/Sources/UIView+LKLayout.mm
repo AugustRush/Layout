@@ -63,7 +63,7 @@
 @end
 
 
-void LKBindingLayout(LKStackLayout *layout, UIView *view, NSInteger state) {
-    NSMutableDictionary *context = view.lk_layoutContext;
+void LKBindingLayout(LKStackLayout *layout, NSObject *object, NSInteger state) {
+    NSMutableDictionary *context = object.lk_layoutContext;
     [context setObject:layout forKey:@(state)];
 }

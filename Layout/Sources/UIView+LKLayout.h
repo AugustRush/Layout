@@ -20,6 +20,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-void LKBindingLayout(LKStackLayout *layout, UIView *view, NSInteger state);
+void LKBindingLayout(LKStackLayout *layout, NSObject *object, NSInteger state);
 
 NS_ASSUME_NONNULL_END
